@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <DAC>
+        <array dma = "true">
+            <timefinal unit = "ms">1300</timefinal>
+            <update>400000</update>
+            <sequence id = "0">
+                <pulse>
+                    <type>方波</type>
+                    <timestart unit = "ms">0</timestart>
+                    <timeend unit = "ms">10</timeend>
+                    <voltagestart unit = "V">0</voltagestart>
+                    <voltageend unit = "V">5</voltageend>
+                </pulse>
+                <pulse>
+                    <type>方波</type>
+                    <timestart unit = "ms">10</timestart>
+                    <timeend unit = "ms">20</timeend>
+                    <voltagestart unit = "V">5</voltagestart>
+                    <voltageend unit = "V">0</voltageend>
+                </pulse>
+            </sequence>
+
+            <sequence id = "1">
+                <pulse>
+                    <type>方波</type>
+                    <timestart unit = "ms">0</timestart>
+                    <timeend unit = "ms">10</timeend>
+                    <voltagestart unit = "V">0</voltagestart>
+                    <voltageend unit = "V">5</voltageend>
+                </pulse>
+                        <pulse>
+                    <type>方波</type>
+                    <timestart unit = "ms">10</timestart>
+                    <timeend unit = "ms">20</timeend>
+                    <voltagestart unit = "V">0</voltagestart>
+                    <voltageend unit = "V">0</voltageend>
+                </pulse>
+                <pulse>
+                    <type>方波</type>
+                    <timestart unit = "ms">20</timestart>
+                    <timeend unit = "ms">30</timeend>
+                    <voltagestart unit = "V">5</voltagestart>
+                    <voltageend unit = "V">0</voltageend>
+                </pulse>
+            </sequence>
+        </array>
+    </DAC>
+    <TTL>
+        <array dma = "false"> <!-- 要涉及us使用dma=true-->
+            <timefinal unit = "ms">1300</timefinal>
+            <sequence id = "4">
+                <pulse>
+                    <timestart unit = "ms">0</timestart>
+                    <timeend unit = "ms">10</timeend>
+                </pulse>
+                <pulse>
+                    <timestart unit = "ms">20</timestart>
+                    <timeend unit = "ms">30</timeend>
+                </pulse>
+            </sequence>
+            <sequence id = "5">
+                <pulse>
+                    <timestart unit = "ms">0</timestart>
+                    <timeend unit = "ms">10</timeend>
+                </pulse>
+                <pulse>
+                    <timestart unit = "ms">20</timestart>
+                    <timeend unit = "ms">30</timeend>
+                </pulse>
+            </sequence>
+        </array>
+    </TTL>
+    <Sampler>
+    <!-- 这里的采样数据包含起始点 左闭右开-->
+        <array>
+            <timefinal unit = "ms">1300</timefinal> <!-- 总时间-->
+            <sequence channel_num = "4">
+                <update>80000</update>
+                <pulse>
+                    <timestart unit = "ms">0</timestart>
+                    <timeend unit = "ms">10</timeend>
+                </pulse>
+                <pulse>
+                    <timestart unit = "ms">20</timestart>
+                    <timeend unit = "ms">30</timeend>
+                </pulse>
+            </sequence>
+        </array>
+    </Sampler>
+    <DDS>
+        <array dma = "false">
+            <timefinal unit = "ms">1300</timefinal>
+            <sequence id = "0"> <!-- 检测触发-->
+                <pulse>
+                    <frequency unit = "MHz">50</frequency>
+                    <phase_offset unit = 'None'>0</phase_offset>
+                    <amplitude unit = 'None'>1</amplitude> <!-- 0-1 之间-->
+                    <phase_mode unit = 'None'>-1</phase_mode> <!-- Default: -1 , CONTINUOUS: 0, ABSOLUTE: 1, TRACKING: 2-->
+                    <timestart unit = "ms">100</timestart>
+                    <timeend unit = "ms">150</timeend>
+                </pulse>
+            </sequence>
+        </array>
+    </DDS>
+</root>
